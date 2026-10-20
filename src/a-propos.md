@@ -50,7 +50,7 @@ Dans la salle geek, il y a deux étagères. Celle des mangas et des animés des 
 
 Aujourd'hui, {{ site.gamer }} joue sur ces machines comme sur de simples jouets : Game Boy, NES, Super Nintendo, Saturn, PSP. Il a fini Mega Man X à 8 ans. Pour ceux qui n'ont pas grandi avec une manette, ce jeu est un monument de sadisme. Il a pesté, il a recommencé dix fois les mêmes sauts, j'ai repris la manette pour deux ou trois passages vicieux. Puis il l'a terminé tout seul.
 
-Je ne lui interdis pas les consoles récentes. Je veux qu'il sache d'abord d'où elles viennent, comme on écoute le jazz avant ce qui en dérive. Ses copains trouvent ça bizarre. Chez nous, c'est notre petite bulle anachronique.
+Je ne lui interdis pas les consoles récentes. Je veux qu'il sache d'abord d'où elles viennent. Chez nous, c'est notre petite bulle anachronique.
 
 C'est la raison d'être de la rubrique [Les jeux de papa]({{ '/rubriques/jeux-de-papa/' | url }}) : il joue aux jeux de mon enfance, et on compare nos avis.
 
