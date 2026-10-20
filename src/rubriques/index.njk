@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: Rubriques
+permalink: /rubriques/
+---
+<h1 class="page-titre">Les rubriques</h1>
+<ul class="liste-rubriques">
+  {% for r in rubriques %}
+  {% set n = (collections.articles | parRubrique(r.slug)).length %}
+  <li>
+    <a href="{{ ('/rubriques/' + r.slug + '/') | url }}">
+      <span class="rub-nom">{{ r.nom }}</span>
+      <span class="rub-intro">{{ r.intro }}</span>
+      <span class="rub-compte">{% if n == 0 %}Bientôt{% else %}{{ n }} article{% if n > 1 %}s{% endif %}{% endif %}</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

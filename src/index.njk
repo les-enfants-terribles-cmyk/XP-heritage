@@ -1,0 +1,39 @@
+---
+layout: base.njk
+---
+{% set nb = collections.articles.length %}
+{% set lvl = nb | niveau %}
+<section class="accueil">
+  <h1 class="accueil-titre"><span class="logo-xp grand">XP</span> Héritage</h1>
+  <p class="accueil-sous-titre">{{ site.sousTitre }}</p>
+  <p class="accueil-intro">Ici, c'est {{ site.gamer }} ({{ site.gamerRole }}), {{ site.ageGamer }} ans, qui donne son avis sur les jeux, avec ses mots à lui. Moi, {{ site.parent }} ({{ site.parentRole }}), son père, j'ajoute ce que je vois de mon côté : comment on encadre, et ce que le jeu lui apprend pour la vraie vie.</p>
+
+  <div class="niveau" role="group" aria-label="Niveau du blog">
+    <p class="niveau-ligne"><span class="pixel">Niv. {{ lvl.niveau }}</span><span>{{ nb }} article{% if nb > 1 %}s{% endif %} publié{% if nb > 1 %}s{% endif %}</span></p>
+    <div class="barre" role="progressbar" aria-valuemin="0" aria-valuemax="{{ lvl.parNiveau }}" aria-valuenow="{{ lvl.dansNiveau }}" aria-label="Progression vers le niveau suivant">
+      {% for i in range(lvl.parNiveau) %}<span class="{% if i < lvl.dansNiveau %}pleine{% endif %}"></span>{% endfor %}
+    </div>
+    <p class="niveau-reste">Niveau suivant dans {{ lvl.reste }} article{% if lvl.reste > 1 %}s{% endif %}.</p>
+  </div>
+</section>
+
+<section aria-labelledby="derniers">
+  <h2 id="derniers" class="section-titre">Les derniers articles</h2>
+  {% if nb == 0 %}
+    <p class="vide">Pas encore d'article. Le premier test arrive bientôt.</p>
+  {% else %}
+  <ol class="liste-articles" reversed>
+    {% for a in collections.articles %}
+    {% set rub = a.data.rubrique | rubrique(rubriques) %}
+    <li>
+      <a class="carte-article" href="{{ a.url | url }}">
+        <span class="carte-rubrique">{{ rub.nom }}</span>
+        <span class="carte-titre">{{ a.data.title }}</span>
+        {% if a.data.resume %}<span class="carte-resume">{{ a.data.resume }}</span>{% endif %}
+        <time class="carte-date" datetime="{{ a.date | dateIso }}">{{ a.date | dateFr }}</time>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+</section>

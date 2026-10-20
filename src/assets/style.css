@@ -1,0 +1,214 @@
+/* XP Héritage — feuille de style
+   Deux voix, deux typos : Baloo 2 pour le gamer, Literata pour le père.
+   Silkscreen (pixel) est réservée à tout ce qui touche à l'XP. */
+
+:root {
+  --encre: #1c2140;
+  --fond: #f4f6fa;
+  --surface: #ffffff;
+  --discret: #59617e;
+  --ligne: #d8deea;
+  --gamer: #ffd23f;
+  --gamer-encre: #2f2600;
+  --papa: #2b6f8a;
+  --papa-fond: #e8f2f6;
+  --xp: #23995a;
+  --xp-vide: #dfe6e2;
+  --focus: #6a4cff;
+
+  --t-gamer: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --t-texte: "Literata", Georgia, "Times New Roman", serif;
+  --t-pixel: "Silkscreen", ui-monospace, monospace;
+
+  --mesure: 42rem;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --encre: #e7eaf6;
+    --fond: #121630;
+    --surface: #1b2142;
+    --discret: #a3aac6;
+    --ligne: #2d3560;
+    --gamer: #f2c230;
+    --gamer-encre: #241c00;
+    --papa: #7cc3de;
+    --papa-fond: #18304a;
+    --xp: #45d487;
+    --xp-vide: #2a3354;
+    --focus: #a996ff;
+    color-scheme: dark;
+  }
+  :root:not([data-theme="light"]) .avatar { color: var(--fond); background: var(--gamer); }
+}
+:root[data-theme="dark"] .avatar { color: var(--fond); background: var(--gamer); }
+:root[data-theme="dark"] {
+  --encre: #e7eaf6; --fond: #121630; --surface: #1b2142; --discret: #a3aac6;
+  --ligne: #2d3560; --gamer: #f2c230; --gamer-encre: #241c00; --papa: #7cc3de;
+  --papa-fond: #18304a; --xp: #45d487; --xp-vide: #2a3354; --focus: #a996ff;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font: 400 1.0625rem/1.7 var(--t-texte);
+  font-optical-sizing: auto;
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--papa); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sauter { position: absolute; left: -999px; top: 0; background: var(--surface); padding: .5rem 1rem; z-index: 10; }
+.sauter:focus { left: 1rem; }
+
+.cadre { width: 100%; max-width: var(--mesure); margin: 0 auto; padding: 0 1rem; }
+@media (min-width: 40rem) { .cadre { padding: 0 1.5rem; } }
+
+.pixel { font-family: var(--t-pixel); font-weight: 400; letter-spacing: 0; }
+.discret { color: var(--discret); }
+
+/* ---------- En-tête ---------- */
+.entete { border-bottom: 1px solid var(--ligne); background: var(--surface); }
+.entete-ligne { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.25rem; padding-top: .75rem; padding-bottom: .75rem; }
+.logo { display: inline-flex; align-items: center; gap: .45rem; text-decoration: none; color: var(--encre); }
+.logo-xp {
+  font-family: var(--t-pixel); font-size: .95rem; line-height: 1;
+  background: var(--xp); color: #fff; padding: .35rem .4rem .3rem;
+  box-shadow: 3px 3px 0 var(--encre);
+}
+.logo-nom { font: 800 1.35rem/1 var(--t-gamer); }
+.nav { display: flex; gap: 1rem; font: 600 1rem/1 var(--t-gamer); }
+.nav a { color: var(--discret); text-decoration: none; padding: .4rem 0; border-bottom: 3px solid transparent; }
+.nav a:hover { color: var(--encre); }
+.nav a[aria-current="page"] { color: var(--encre); border-bottom-color: var(--gamer); }
+
+main.cadre { padding-top: 2.5rem; padding-bottom: 4rem; }
+
+/* ---------- Accueil ---------- */
+.accueil { margin-bottom: 3rem; }
+.accueil-titre { font: 800 clamp(2.6rem, 11vw, 4.2rem)/1 var(--t-gamer); margin: 0 0 .75rem; display: flex; align-items: center; gap: .9rem; letter-spacing: -0.01em; }
+.logo-xp.grand { font-size: .62em; padding: .3em .32em .26em; box-shadow: 6px 6px 0 var(--encre); }
+.accueil-sous-titre { font: 600 1.25rem/1.35 var(--t-gamer); margin: 0 0 1.25rem; color: var(--encre); }
+.accueil-intro { margin: 0 0 2rem; max-width: 36rem; }
+
+.niveau { background: var(--surface); border: 2px solid var(--encre); padding: 1rem 1.1rem 1.1rem; box-shadow: 5px 5px 0 var(--encre); max-width: 26rem; }
+.niveau-ligne { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 0 0 .6rem; font: 600 .95rem/1.2 var(--t-gamer); }
+.niveau-ligne .pixel { font-size: 1.05rem; color: var(--xp); }
+.barre { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+.barre span { height: 16px; background: var(--xp-vide); }
+.barre span.pleine { background: var(--xp); }
+.niveau-reste { margin: .6rem 0 0; font-size: .9rem; color: var(--discret); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .barre span.pleine { animation: remplir .5s steps(4) both; }
+  .barre span.pleine:nth-child(2) { animation-delay: .12s; }
+  .barre span.pleine:nth-child(3) { animation-delay: .24s; }
+  .barre span.pleine:nth-child(4) { animation-delay: .36s; }
+  @keyframes remplir { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); transform-origin: left; } }
+}
+
+.section-titre, .page-titre { font: 800 1.6rem/1.2 var(--t-gamer); margin: 0 0 1rem; }
+.page-titre { font-size: clamp(2rem, 7vw, 2.6rem); }
+.page-intro { margin-top: -.25rem; color: var(--discret); }
+.vide { padding: 1.25rem; border: 2px dashed var(--ligne); color: var(--discret); }
+
+/* ---------- Listes d'articles ---------- */
+.liste-articles { list-style: none; padding: 0; margin: 0; }
+.liste-articles li + li { border-top: 1px solid var(--ligne); }
+.carte-article { display: grid; gap: .2rem; padding: 1.1rem 0; text-decoration: none; color: inherit; }
+.carte-rubrique { font: 600 .9rem/1.2 var(--t-gamer); color: var(--papa); }
+.carte-titre { font: 800 1.35rem/1.25 var(--t-gamer); }
+.carte-article:hover .carte-titre { text-decoration: underline; text-decoration-color: var(--gamer); text-decoration-thickness: 4px; text-underline-offset: .15em; }
+.carte-resume { color: var(--discret); }
+.carte-date { font-size: .85rem; color: var(--discret); }
+
+.liste-rubriques { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
+.liste-rubriques a { display: grid; gap: .15rem; padding: 1rem 1.1rem; background: var(--surface); border-left: 5px solid var(--gamer); text-decoration: none; color: inherit; }
+.liste-rubriques a:hover { border-left-color: var(--xp); }
+.rub-nom { font: 800 1.2rem/1.25 var(--t-gamer); }
+.rub-intro { color: var(--discret); }
+.rub-compte { font-size: .85rem; color: var(--papa); font-weight: 600; }
+
+/* ---------- Article ---------- */
+.article-rubrique { margin: 0 0 .4rem; font: 600 .95rem/1.2 var(--t-gamer); }
+.article-rubrique a { text-decoration: none; }
+.article-tete h1 { font: 800 clamp(2rem, 7.5vw, 2.75rem)/1.1 var(--t-gamer); margin: 0 0 .6rem; letter-spacing: -0.01em; }
+.article-meta { color: var(--discret); font-size: .92rem; margin: 0 0 2rem; }
+
+/* La fiche, façon étiquette de cartouche */
+.cartouche { position: relative; background: var(--surface); border: 3px solid var(--encre); border-radius: 14px 14px 4px 4px; padding: 1.6rem 1.2rem 1.2rem; margin: 0 0 2.5rem; }
+.cartouche-encoche { position: absolute; top: -3px; left: 50%; width: 38%; height: 10px; transform: translateX(-50%); background: var(--encre); border-radius: 0 0 6px 6px; }
+.cartouche-jeu { font: 800 1.5rem/1.2 var(--t-gamer); margin: 0 0 1rem; }
+.cartouche-infos { margin: 0; display: grid; gap: .7rem; }
+.cartouche-infos > div { display: grid; grid-template-columns: 9rem 1fr; gap: .75rem; align-items: baseline; }
+@media (max-width: 28rem) { .cartouche-infos > div { grid-template-columns: 1fr; gap: .1rem; } }
+.cartouche-infos dt { font: 600 .9rem/1.3 var(--t-gamer); color: var(--discret); }
+.cartouche-infos dd { margin: 0; }
+.mots { display: flex; flex-wrap: wrap; gap: .4rem; }
+.mots span { font: 700 1rem/1 var(--t-gamer); background: var(--gamer); color: var(--gamer-encre); padding: .35rem .6rem .25rem; border-radius: 999px; }
+.note { display: inline-flex; gap: 3px; vertical-align: -1px; margin-right: .3rem; }
+.note i { width: 12px; height: 12px; background: var(--xp-vide); display: block; }
+.note i.plein { background: var(--xp); }
+
+.article-corps h2 { font: 800 1.55rem/1.25 var(--t-gamer); margin: 3rem 0 1rem; }
+.article-corps h3 { font: 700 1.2rem/1.35 var(--t-gamer); margin: 2.25rem 0 .9rem; }
+.article-corps p { margin: 0 0 1.1rem; }
+
+/* La voix du gamer : une bulle jaune */
+.voix-gamer { display: flex; gap: .7rem; align-items: flex-end; margin: 0 0 1.25rem; }
+.avatar { flex: 0 0 2.4rem; height: 2.4rem; display: grid; place-items: center; border-radius: 50%; background: var(--encre); color: var(--gamer); font: 800 1.15rem/1 var(--t-gamer); }
+.bulle { background: var(--gamer); color: var(--gamer-encre); border-radius: 22px 22px 22px 4px; padding: .8rem 1.1rem .6rem; font: 600 1.15rem/1.45 var(--t-gamer); }
+.bulle p { margin: 0 0 .4rem; }
+.bulle p:last-child { margin-bottom: .2rem; }
+
+/* La voix du père */
+.voix-papa { margin: 0 0 1.5rem; padding: .9rem 1.1rem .4rem; border-left: 4px solid var(--papa); background: var(--papa-fond); }
+.voix-papa-titre { font: 700 .95rem/1.2 var(--t-gamer); color: var(--papa); margin: 0 0 .4rem !important; }
+.voix-papa p { margin: 0 0 .7rem; }
+
+/* Images : dessins et photos, posés comme des cartes à collectionner */
+.photo { margin: 0 0 2rem; }
+.photo picture { display: flex; justify-content: center; }
+/* Un dessin en portrait ne doit pas occuper trois écrans : on plafonne la hauteur */
+.photo img { display: block; width: auto; max-width: 100%; height: auto; max-height: 32rem; border: 3px solid var(--encre); box-shadow: 5px 5px 0 var(--encre); background: var(--surface); }
+.photo figcaption { text-align: center; }
+.photo figcaption { margin-top: .9rem; font: 600 .95rem/1.4 var(--t-gamer); color: var(--discret); }
+.article-corps .photo { margin-top: 2rem; }
+
+/* Le butin d'XP */
+.butin { margin: 3rem 0 0; padding: 1.2rem 1.2rem .6rem; border: 2px solid var(--xp); background: var(--surface); }
+.butin h2 { font: 800 1.3rem/1.3 var(--t-gamer); margin: 0 0 .6rem; display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.butin .pixel { color: var(--xp); font-size: 1.1rem; }
+.butin ul { margin: 0 0 .6rem; padding-left: 1.2rem; }
+.butin li { margin: 0 0 .3rem; }
+.butin li::marker { color: var(--xp); }
+
+.question-lecteurs { margin-top: 2.5rem; }
+.question-lecteurs h2 { font: 800 1.3rem/1.3 var(--t-gamer); margin: 0 0 .4rem; }
+
+.retour { margin-top: 3rem; font: 600 1rem/1 var(--t-gamer); }
+
+.page-texte h1 { font: 800 clamp(2rem, 7vw, 2.6rem)/1.15 var(--t-gamer); margin: 0 0 1.25rem; }
+.page-texte h2 { font: 800 1.45rem/1.25 var(--t-gamer); margin: 2.5rem 0 .8rem; }
+.page-texte li { margin-bottom: .5rem; }
+
+/* Page « Qui on est » : les deux joueurs */
+.joueurs { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.25rem; margin: 0 0 1.5rem; }
+.joueur { border: 3px solid var(--encre); padding: 1rem 1.1rem .5rem; box-shadow: 5px 5px 0 var(--encre); min-width: 0; }
+.joueur-1 { background: var(--papa-fond); }
+.joueur-2 { background: var(--gamer); color: var(--gamer-encre); }
+.joueur-etiquette { margin: 0 0 .5rem; font: 600 .95rem/1.2 var(--t-gamer); display: flex; align-items: center; gap: .5rem; }
+.joueur-etiquette .pixel { font-size: .85rem; background: var(--encre); color: var(--fond); padding: .25rem .35rem .15rem; }
+.page-texte .joueur h2 { margin: 0 0 .5rem; font-size: 1.5rem; }
+.joueur p:last-child { margin-bottom: .8rem; }
+
+/* ---------- Pied ---------- */
+.pied { border-top: 1px solid var(--ligne); padding: 1.5rem 0 2.5rem; font-size: .9rem; color: var(--discret); }
+.pied p { margin: 0; }

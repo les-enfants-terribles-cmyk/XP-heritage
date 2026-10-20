@@ -1,0 +1,30 @@
+---
+layout: base.njk
+pagination:
+  data: rubriques
+  size: 1
+  alias: r
+permalink: "/rubriques/{{ r.slug }}/"
+eleventyComputed:
+  title: "{{ r.nom }}"
+---
+{% set liste = collections.articles | parRubrique(r.slug) %}
+<p class="article-rubrique"><a href="{{ '/rubriques/' | url }}">Rubriques</a></p>
+<h1 class="page-titre">{{ r.nom }}</h1>
+<p class="page-intro">{{ r.intro }}</p>
+
+{% if liste.length == 0 %}
+  <p class="vide">Pas encore d'article dans cette rubrique. Le premier arrive bientôt.</p>
+{% else %}
+<ol class="liste-articles" reversed>
+  {% for a in liste %}
+  <li>
+    <a class="carte-article" href="{{ a.url | url }}">
+      <span class="carte-titre">{{ a.data.title }}</span>
+      {% if a.data.resume %}<span class="carte-resume">{{ a.data.resume }}</span>{% endif %}
+      <time class="carte-date" datetime="{{ a.date | dateIso }}">{{ a.date | dateFr }}</time>
+    </a>
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}

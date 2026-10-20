@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "test-du-mois",
+    "nom": "Le test du mois",
+    "intro": "Un jeu, son avis à lui, et le mot du parent."
+  },
+  {
+    "slug": "questions-du-gamer",
+    "nom": "Les questions du gamer",
+    "intro": "Un thème, sans jeu précis : perdre, tricher, les copains, les écrans…"
+  },
+  {
+    "slug": "coin-des-parents",
+    "nom": "Le coin des parents",
+    "intro": "Nos règles, nos choix de jeux, nos doutes aussi."
+  },
+  {
+    "slug": "jeux-de-papa",
+    "nom": "Les jeux de papa",
+    "intro": "Il teste un jeu de mon enfance. On compare nos avis."
+  },
+  {
+    "slug": "carnet-de-progres",
+    "nom": "Le carnet de progrès",
+    "intro": "De temps en temps, ce qui a changé chez lui grâce au jeu."
+  }
+]

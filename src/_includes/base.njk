@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="{{ site.langue }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} | {% endif %}{{ site.titre }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta property="og:title" content="{{ title or site.titre }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="{% if layout == 'article.njk' %}article{% else %}website{% endif %}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Silkscreen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+</head>
+<body>
+  <a class="sauter" href="#contenu">Aller au contenu</a>
+  <header class="entete">
+    <div class="cadre entete-ligne">
+      <a class="logo" href="{{ '/' | url }}" aria-label="{{ site.titre }}, accueil">
+        <span class="logo-xp">XP</span><span class="logo-nom">Héritage</span>
+      </a>
+      <nav class="nav" aria-label="Menu principal">
+        <a href="{{ '/' | url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Articles</a>
+        <a href="{{ '/rubriques/' | url }}"{% if '/rubriques/' in page.url %} aria-current="page"{% endif %}>Rubriques</a>
+        <a href="{{ '/a-propos/' | url }}"{% if page.url == '/a-propos/' %} aria-current="page"{% endif %}>Qui on est</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu" class="cadre">
+    {{ content | safe }}
+  </main>
+
+  <footer class="pied">
+    <div class="cadre">
+      <p>{{ site.titre }}, écrit à quatre mains par {{ site.parent }} et {{ site.gamer }}. Les prénoms et les visages restent à la maison.</p>
+    </div>
+  </footer>
+</body>
+</html>

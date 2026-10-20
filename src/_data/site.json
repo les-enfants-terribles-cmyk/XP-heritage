@@ -1,0 +1,11 @@
+{
+  "titre": "XP Héritage",
+  "sousTitre": "Un gamer de 9 ans, son père, et ce que le jeu nous apprend",
+  "description": "Les tests de jeux vidéo d'un enfant de 9 ans, racontés avec ses mots, et le regard de son père sur l'encadrement et ce que le jeu lui apporte.",
+  "gamer": "Young Gojo",
+  "gamerRole": "Player 2",
+  "ageGamer": 9,
+  "parent": "Mr Dodompa",
+  "parentRole": "Player 1",
+  "langue": "fr"
+}

@@ -1,0 +1,10 @@
+Mettre ici les dessins et photos d'origine (.jpg, .png, .webp).
+Le site publie des copies redimensionnées et sans données cachées. Mais ce dossier fait partie du dépôt GitHub, qui est public : tout fichier déposé ici est visible par tout le monde.
+Déposer donc des fichiers déjà nettoyés : localisation désactivée sur le téléphone avant le partage.
+
+Avant de déposer un dessin ou une photo, vérifier :
+- pas de prénom ni de signature complète sur le dessin ;
+- pas de visage, d'uniforme d'école, de numéro de maison ni de vue reconnaissable dans le fond ;
+- pas de capture montrant un pseudo en ligne ou un message d'un autre joueur.
+
+Dans l'article : {% image "nom-du-fichier.jpg", "Description pour les malvoyants", "Légende facultative" %}

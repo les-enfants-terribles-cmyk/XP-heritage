@@ -1,0 +1,48 @@
+---
+layout: base.njk
+---
+{% set rub = rubrique | rubrique(rubriques) %}
+<article class="article">
+  <header class="article-tete">
+    <p class="article-rubrique"><a href="{{ ('/rubriques/' + rub.slug + '/') | url }}">{{ rub.nom }}</a></p>
+    <h1>{{ title }}</h1>
+    <p class="article-meta">Publié le <time datetime="{{ page.date | dateIso }}">{{ page.date | dateFr }}</time>, par {{ site.parent }} et {{ site.gamer }} ({{ site.ageGamer }} ans)</p>
+  </header>
+
+  {% if illustration %}{% image illustration, illustrationAlt, illustrationLegende %}{% endif %}
+
+  {% if jeu %}
+  <section class="cartouche" aria-label="Fiche du jeu">
+    <div class="cartouche-encoche" aria-hidden="true"></div>
+    <h2 class="cartouche-jeu">{{ jeu }}</h2>
+    <dl class="cartouche-infos">
+      {% if pegi %}<div><dt>Classement</dt><dd>PEGI {{ pegi }}{% if pegiNote %} <span class="discret">({{ pegiNote }})</span>{% endif %}</dd></div>{% endif %}
+      {% if motsGamer %}<div><dt>En 3 mots</dt><dd class="mots">{% for m in motsGamer %}<span>{{ m }}</span>{% endfor %}</dd></div>{% endif %}
+      {% if note %}<div><dt>Sa note</dt><dd><span class="note" role="img" aria-label="{{ note }} sur 10">{% for i in range(10) %}<i class="{% if i < note %}plein{% endif %}"></i>{% endfor %}</span> <strong>{{ note }}/10</strong></dd></div>{% endif %}
+      {% if conseilleA %}<div><dt>Il le conseille à</dt><dd>{{ conseilleA }}</dd></div>{% endif %}
+    </dl>
+  </section>
+  {% endif %}
+
+  <div class="article-corps">
+    {{ content | safe }}
+  </div>
+
+  {% if xp %}
+  <section class="butin" aria-labelledby="butin-titre">
+    <h2 id="butin-titre"><span class="pixel">+XP</span> Ce qu'il a gagné en jouant</h2>
+    <ul>
+      {% for x in xp %}<li>{{ x }}</li>{% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if question %}
+  <section class="question-lecteurs">
+    <h2>À vous</h2>
+    <p>{{ question }}</p>
+  </section>
+  {% endif %}
+</article>
+
+<nav class="retour"><a href="{{ '/' | url }}">Tous les articles</a></nav>
