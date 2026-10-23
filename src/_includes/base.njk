@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Silkscreen&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
 </head>
-<body>
+<body{% if theme %} data-jeu="{{ theme }}"{% endif %}>
   <a class="sauter" href="#contenu">Aller au contenu</a>
   <header class="entete">
     <div class="cadre entete-ligne">
