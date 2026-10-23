@@ -212,3 +212,40 @@ main.cadre { padding-top: 2.5rem; padding-bottom: 4rem; }
 /* ---------- Pied ---------- */
 .pied { border-top: 1px solid var(--ligne); padding: 1.5rem 0 2.5rem; font-size: .9rem; color: var(--discret); }
 .pied p { margin: 0; }
+
+/* ---------- Thème « Mega Man X » ----------
+   S'active avec `theme: megaman-x` dans l'en-tête d'un article.
+   Palette : bleu armure, cyan du Buster, une touche de rouge (le cristal) et d'or (les épaulettes).
+   Aucun logo, aucune image, aucune police du jeu : seulement des couleurs. */
+body[data-jeu="megaman-x"] {
+  --encre: #e8f4ff;
+  --fond: #0a1530;
+  --surface: #12254d;
+  --discret: #9db6dc;
+  --ligne: #24427a;
+  --gamer: #38c8ff;
+  --gamer-encre: #021428;
+  --papa: #7fc4ff;
+  --papa-fond: #0f2a58;
+  --xp: #4fd4ff;
+  --xp-vide: #1f3a6e;
+  --focus: #ffd23f;
+  --contour: #4aa3ff;
+  --rouge: #ff4d5e;
+  --or: #f2c230;
+  color-scheme: dark;
+  background: linear-gradient(180deg, #0a1530 0%, #0d1d42 100%) fixed;
+}
+body[data-jeu="megaman-x"] .entete { border-bottom: 2px solid var(--contour); }
+body[data-jeu="megaman-x"] .logo-xp { color: var(--gamer-encre); box-shadow: 3px 3px 0 var(--contour); }
+body[data-jeu="megaman-x"] .nav a[aria-current="page"] { border-bottom-color: var(--or); }
+body[data-jeu="megaman-x"] .article-rubrique a { color: var(--gamer); }
+body[data-jeu="megaman-x"] .cartouche { border-color: var(--contour); box-shadow: 0 0 18px rgb(56 200 255 / .25); }
+body[data-jeu="megaman-x"] .cartouche-encoche { background: var(--rouge); }
+body[data-jeu="megaman-x"] .photo img { border-color: var(--contour); box-shadow: 5px 5px 0 var(--contour); }
+body[data-jeu="megaman-x"] .bulle { box-shadow: 0 0 14px rgb(56 200 255 / .3); }
+body[data-jeu="megaman-x"] .avatar { color: var(--gamer-encre); background: var(--gamer); }
+body[data-jeu="megaman-x"] .voix-papa { border-left-color: var(--or); }
+body[data-jeu="megaman-x"] .voix-papa-titre { color: var(--or); }
+body[data-jeu="megaman-x"] .butin { border-color: var(--contour); }
+body[data-jeu="megaman-x"] .butin li::marker { color: var(--or); }
